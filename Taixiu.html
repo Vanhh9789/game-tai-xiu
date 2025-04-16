@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+  <meta charset="UTF-8">
+  <title>Game Tài Xỉu - Chẵn Lẻ</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      margin: 30px;
+      text-align: center;
+    }
+    button {
+      padding: 10px 20px;
+      font-size: 16px;
+    }
+    .result {
+      margin-top: 20px;
+      font-size: 18px;
+      line-height: 1.6;
+    }
+  </style>
+</head>
+<body>
+  <h1>Game Tài Xỉu - Chẵn Lẻ</h1>
+  <button onclick="rollDice()">Lắc Xúc Xắc</button>
+  <div id="result" class="result"></div>
+
+  <script>
+    function rollDice() {
+      // Sinh ngẫu nhiên 3 số từ 1 đến 6 cho 3 viên xúc xắc
+      const dice1 = Math.floor(Math.random() * 6) + 1;
+      const dice2 = Math.floor(Math.random() * 6) + 1;
+      const dice3 = Math.floor(Math.random() * 6) + 1;
+      
+      // Tính tổng điểm của 3 viên xúc xắc
+      const total = dice1 + dice2 + dice3;
+      
+      // Xét quy tắc Tài/Xỉu
+      const taiXiu = total > 10 ? "Tài" : "Xỉu";
+      
+      // Xét kết quả chẵn hay lẻ
+      const chanLe = total % 2 === 0 ? "Chẵn" : "Lẻ";
+      
+      // Hiển thị kết quả
+      document.getElementById("result").innerHTML = 
+        `<strong>Xúc xắc:</strong> ${dice1}, ${dice2}, ${dice3} <br>` +
+        `<strong>Tổng số:</strong> ${total} <br>` +
+        `<strong>Kết quả:</strong> ${taiXiu} - ${chanLe}`;
+    }
+  </script>
+</body>
+</html>
